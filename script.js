@@ -71,6 +71,7 @@ function popBombs() {
   for (let i = 0; i < bombArr.length; i++) {
     let temp = bombArr[i].toString();
     document.getElementById(temp).classList.add("bombCell");
+	document.getElementById(temp).innerHTML = String.fromCodePoint(0x1f4a3);//For bomb emoji
   }
 }
 function gameOver() {
