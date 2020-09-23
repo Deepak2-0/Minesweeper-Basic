@@ -55,11 +55,18 @@ function handleClick(event) {
       return;
     }
   }
+
+  updateScore(event);
   event.target.classList.add("normalCell");
-  updateScore();
 }
 
-function updateScore() {
+function updateScore(event) {
+  let temp = event.target.classList.contains("normalCell");
+  //console.log(temp);
+  if (temp) {
+    //to check clicked already or not
+    return;
+  }
   score++;
   document.getElementById("score").innerHTML = "Score: " + score;
   if (score >= 71) {
@@ -71,7 +78,7 @@ function popBombs() {
   for (let i = 0; i < bombArr.length; i++) {
     let temp = bombArr[i].toString();
     document.getElementById(temp).classList.add("bombCell");
-	document.getElementById(temp).innerHTML = String.fromCodePoint(0x1f4a3);//For bomb emoji
+    document.getElementById(temp).innerHTML = String.fromCodePoint(0x1f4a3); //for bomb emoji
   }
 }
 function gameOver() {
